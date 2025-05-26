@@ -2,11 +2,11 @@ import userInfo from "@/types/UserInfo";
 import instance from ".";
 import { getToken, saveToken } from "./storage";
 
-const login = async (userInfo: userInfo) => {
-  const { data } = await instance.post(
-    "/mini-project/api/auth/login",
-    userInfo
-  );
+const Login = async (username: string, password: string) => {
+  const { data } = await instance.post("/mini-project/api/auth/login", {
+    username,
+    password,
+  });
   if (data.token) {
     await saveToken("token", data.token);
   }
@@ -36,4 +36,4 @@ const currentUser = async () => {
   return data;
 };
 
-export { currentUser, login, registerUser };
+export { currentUser, Login, registerUser };

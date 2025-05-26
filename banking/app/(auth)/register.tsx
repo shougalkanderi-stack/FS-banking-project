@@ -11,6 +11,7 @@ import {
 } from "react-native";
 //   import colors from "../../data/styling/colors";
 import { registerUser } from "@/api/auth";
+import { deleteToken } from "@/api/storage";
 import AuthContext from "@/conext/AuthContext";
 import { useMutation } from "@tanstack/react-query";
 import * as imagePicker from "expo-image-picker";
@@ -59,6 +60,7 @@ const register = () => {
   });
 
   const handleRegister = () => mutate();
+  const LogOut = async () => deleteToken();
 
   return (
     <KeyboardAvoidingView
@@ -68,7 +70,7 @@ const register = () => {
       <View
         style={{
           flex: 1,
-          backgroundColor: "#B75D69",
+          backgroundColor: "grey",
           padding: 20,
           justifyContent: "center",
           alignItems: "center",
@@ -163,7 +165,31 @@ const register = () => {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={{ marginTop: 20, alignItems: "center" }}>
+          <TouchableOpacity
+            style={{
+              backgroundColor: "white",
+              padding: 10,
+              borderRadius: 5,
+              marginTop: 20,
+              alignItems: "center",
+            }}
+            onPress={LogOut}
+          >
+            <Text
+              style={{
+                color: "#111827",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              LogOut
+            </Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={{ marginTop: 20, alignItems: "center" }}
+            onPress={() => router.push("/(auth)/login")}
+          >
             <Text style={{ color: "white", fontSize: 16 }}>
               Already have an account?{" "}
               <Text style={{ color: "white", fontWeight: "bold" }}>Login</Text>
