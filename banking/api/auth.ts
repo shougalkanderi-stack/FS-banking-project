@@ -1,6 +1,6 @@
 import userInfo from "@/types/UserInfo";
 import instance from ".";
-import { saveToken } from "./storage";
+import { getToken, saveToken } from "./storage";
 
 const login = async (userInfo: userInfo) => {
   const { data } = await instance.post(
@@ -13,19 +13,20 @@ const login = async (userInfo: userInfo) => {
   return data;
 };
 
-const register = async (userInfo: userInfo) => {
+const registerUser = async ({ username, password, image }: userInfo) => {
   const formData = new FormData();
-  formData.append("username", userInfo.username);
-  formData.append("password", userInfo.password);
+  formData.append("username", username);
+  formData.append("password", password);
   formData.append("image", {
     name: "image.jpg",
-    uri: userInfo.image,
+    uri: image,
     type: "image/jpg",
   } as any);
-
+  const token = getToken();
   const { data } = await instance.post(
     "/mini-project/api/auth/register",
-    formData
+    formData,
+    { headers: { Authorization: `Bearer ${token}` } }
   );
   return data;
 };
@@ -35,4 +36,4 @@ const currentUser = async () => {
   return data;
 };
 
-export { currentUser, login, register };
+export { currentUser, login, registerUser };
