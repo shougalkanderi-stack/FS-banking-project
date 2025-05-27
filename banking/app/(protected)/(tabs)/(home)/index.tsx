@@ -1,4 +1,6 @@
-import { Text, View } from "react-native";
+import { Redirect } from "expo-router";
+import { View } from "react-native";
+
 export default function Index() {
   return (
     <View
@@ -8,7 +10,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>index/app</Text>
+      <Redirect href={"/home"} />
     </View>
   );
 }

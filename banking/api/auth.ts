@@ -26,7 +26,12 @@ const registerUser = async ({ username, password, image }: userInfo) => {
   const { data } = await instance.post(
     "/mini-project/api/auth/register",
     formData,
-    { headers: { Authorization: `Bearer ${token}` } }
+    {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    }
   );
   return data;
 };

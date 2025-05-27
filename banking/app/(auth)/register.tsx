@@ -130,7 +130,7 @@ const register = () => {
               marginTop: 20,
             }}
             placeholder="Name"
-            onChangeText={(text) => setUserName(text)}
+            onChangeText={(text) => setUserName(text.toLowerCase())}
           />
 
           <TextInput
@@ -140,8 +140,9 @@ const register = () => {
               borderRadius: 5,
               marginTop: 20,
             }}
+            secureTextEntry={true}
             placeholder="Password"
-            onChangeText={(text) => setPassword(text)}
+            onChangeText={(text) => setPassword(text.toLowerCase())}
           />
 
           <TouchableOpacity
