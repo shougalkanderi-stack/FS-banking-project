@@ -1,10 +1,38 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { deleteToken } from "@/api/storage";
+import AuthContext from "@/conext/AuthContext";
+import React, { useContext } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const homeLayout = () => {
+  const LogOut = async () => {
+    deleteToken();
+    setIsAuth(false);
+  };
+  const { setIsAuth } = useContext(AuthContext);
+
   return (
     <View>
-      <Text>_layout</Text>
+      <TouchableOpacity
+        style={{
+          backgroundColor: "white",
+          padding: 10,
+          borderRadius: 5,
+          marginTop: 20,
+          alignItems: "center",
+        }}
+        onPress={LogOut}
+      >
+        <Text
+          style={{
+            color: "#111827",
+            fontWeight: "bold",
+            fontSize: 16,
+          }}
+        >
+          LogOut
+        </Text>
+      </TouchableOpacity>
+      <Text>homelayout</Text>
     </View>
   );
 };

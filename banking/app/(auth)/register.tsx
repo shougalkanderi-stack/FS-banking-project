@@ -49,10 +49,10 @@ const register = () => {
 
   const { mutate } = useMutation({
     mutationKey: ["register"],
-    mutationFn: async () => registerUser({ username, password, image }),
+    mutationFn: () => registerUser({ username, password, image }),
     onSuccess: () => {
       setIsAuth(true);
-      router.replace("/home");
+      router.replace("/");
     },
     onError: (Error) => {
       console.log(Error);
@@ -162,27 +162,6 @@ const register = () => {
               }}
             >
               Register
-            </Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={{
-              backgroundColor: "white",
-              padding: 10,
-              borderRadius: 5,
-              marginTop: 20,
-              alignItems: "center",
-            }}
-            onPress={LogOut}
-          >
-            <Text
-              style={{
-                color: "#111827",
-                fontWeight: "bold",
-                fontSize: 16,
-              }}
-            >
-              LogOut
             </Text>
           </TouchableOpacity>
 
