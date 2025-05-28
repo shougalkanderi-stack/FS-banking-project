@@ -1,6 +1,6 @@
 import { currentUser } from "@/api/auth";
 import { useQuery } from "@tanstack/react-query";
-import React, { useEffect } from "react";
+import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 
 const UserProfile = () => {
@@ -9,13 +9,42 @@ const UserProfile = () => {
     queryFn: async () => await currentUser(),
   });
 
-  isLoading && <Text>Loading ....</Text>;
-  isError && <Text>Error Fetching Data.</Text>;
+  if (isLoading) return <Text>Loading ....</Text>;
+  if (isError) return <Text>Error Fetching Data.</Text>;
 
-  useEffect(() => {
-    currentUser();
-    console.log(data);
-  }, []);
+  // Helper function to construct full image URL for uploaded images
+  const getImageUrl = (imagePath: string) => {
+    if (!imagePath) {
+      console.log("No image path provided");
+      return null;
+    }
+
+    console.log("Processing image path:", imagePath);
+
+    // If it's already a full URL, return as is
+    if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
+      console.log("Full URL detected:", imagePath);
+      return imagePath;
+    }
+
+    // For uploaded images, construct the full URL
+    const baseUrl = "https://react-bank-project.eapi.joincoded.com"; // Not the best way to do this, but keep it for now.
+
+    // Handle different possible path formats
+    let fullUrl;
+    if (imagePath.startsWith("/")) {
+      // Path starts with slash: /uploads/image.jpg
+      fullUrl = `${baseUrl}${imagePath}`;
+    } else {
+      // Path doesn't start with slash: uploads/image.jpg
+      fullUrl = `${baseUrl}/${imagePath}`;
+    }
+
+    console.log("Constructed full URL:", fullUrl);
+    return fullUrl;
+  };
+
+  const imageUrl = getImageUrl(data?.image);
 
   return (
     <View
@@ -37,9 +66,9 @@ const UserProfile = () => {
           flex: 1,
         }}
       >
-        {data?.image ? (
+        {imageUrl ? (
           <Image
-            source={{ uri: data?.image }}
+            source={{ uri: imageUrl }}
             style={{
               height: 100,
               width: 100,
@@ -50,7 +79,7 @@ const UserProfile = () => {
           />
         ) : (
           <Image
-            source={{ uri: data?.image }} //require("@/assets/images/noAvatar.png")
+            source={require("@/assets/images/noAvatar.png")}
             style={{
               height: 100,
               width: 100,
