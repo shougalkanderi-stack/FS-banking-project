@@ -1,10 +1,19 @@
+import { currentUser } from "@/api/auth";
 import { deleteToken } from "@/api/storage";
 import AuthContext from "@/conext/AuthContext";
-import { profileStyles } from "@/src/screens/ProfileScreenStyle";
+import getImageUrl from "@/helper/helperFunctions";
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
-import { Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 const profile = () => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["getUser"],
+    queryFn: async () => await currentUser(),
+  });
+
+  const imageUrl = getImageUrl(data?.image);
+
   const LogOut = async () => {
     deleteToken();
     setIsAuth(false);
@@ -13,7 +22,47 @@ const profile = () => {
 
   return (
     <View>
-      <Text style={profileStyles.name}></Text>
+      <View
+        style={{
+          backgroundColor: "#eacdc2",
+          height: 150,
+          width: 150,
+          borderRadius: 50,
+        }}
+      >
+        {imageUrl && (
+          <Image
+            source={{ uri: imageUrl }}
+            style={{
+              height: 150,
+              width: 150,
+              borderRadius: 50,
+              justifyContent: "center",
+            }}
+          />
+        )}
+      </View>
+
+      <Text
+        style={{
+          backgroundColor: "white",
+          padding: 10,
+          borderRadius: 5,
+          marginTop: 20,
+          width: 500,
+          fontSize: 20,
+        }}
+      >
+        {data?.username}
+      </Text>
+      {/* <Text
+    //     style={{
+    //       backgroundColor: "white",
+    //       padding: 10,
+    //       borderRadius: 5,
+    //       marginTop: 20,
+    //     }}
+    //   /> */}
 
       <TouchableOpacity
         style={{
@@ -29,10 +78,10 @@ const profile = () => {
           style={{
             color: "#111827",
             fontWeight: "bold",
-            fontSize: 16,
+            fontSize: 15,
           }}
         >
-          LogOut
+          Log out
         </Text>
       </TouchableOpacity>
     </View>
