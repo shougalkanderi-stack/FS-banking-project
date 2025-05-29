@@ -31,6 +31,7 @@ const network = (user: userInfo) => {
   // const allUser = data?.map((d: user) => {
   //   return <Text>{d.username}</Text>;
   // });
+  console.log("");
 
   return (
     <ScrollView>
