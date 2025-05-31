@@ -14,7 +14,7 @@ const network = (user: userInfo) => {
   if (isLoading) return <Text>Loading ....</Text>;
   if (isError) return <Text>Error Fetching Data.</Text>;
 
-  console.log(data);
+  // console.log(data);
 
   // mapping data
 
@@ -31,7 +31,7 @@ const network = (user: userInfo) => {
   // const allUser = data?.map((d: user) => {
   //   return <Text>{d.username}</Text>;
   // });
-  console.log("");
+  // console.log("");
 
   return (
     <ScrollView>

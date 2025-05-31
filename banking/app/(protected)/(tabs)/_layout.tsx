@@ -21,7 +21,7 @@ const tabsLayout = () => {
         options={{
           title: "Services",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <FontAwesome size={28} name="money" color={color} />
           ),
         }}
       />
@@ -29,6 +29,16 @@ const tabsLayout = () => {
         name="(network)"
         options={{
           title: "Network",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={28} name="user" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="(moneyServices)"
+        options={{
+          title: "Money Services",
+          href: null,
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="user" color={color} />
           ),
