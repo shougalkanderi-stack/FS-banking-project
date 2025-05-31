@@ -1,5 +1,5 @@
-import { depositMoney } from "@/api/auth";
-import { useMutation } from "@tanstack/react-query";
+import { currentUser, depositMoney } from "@/api/auth";
+import { useMutation, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -11,11 +11,34 @@ import {
 
 const deposit = () => {
   const [amount, setAmount] = useState(0);
-  const { mutate } = useMutation({
-    mutationKey: ["depositMoney"],
-    mutationFn: () => depositMoney(amount),
+  const { data, isLoading } = useQuery({
+    queryKey: ["getUser"],
+    queryFn: async () => await currentUser(),
   });
-  const hamdleDeposit = async () => {};
+  const { mutate, isError, isSuccess } = useMutation({
+    mutationKey: ["depositMoney"],
+    mutationFn: async () => {
+      const newBlance = data?.balance + amount;
+      await depositMoney(newBlance);
+    },
+  });
+  if (isSuccess) {
+    console.log("success");
+  }
+  if (isError) {
+    console.log("fail");
+  }
+  const hamdleDeposit = async () => {
+    if (amount > 1) {
+      mutate();
+    } else if (amount <= 1 && amount > 0) {
+      alert("Can Not Deposit Amount Less Than 1KD");
+    } else {
+      alert("Please Enter a Valid Number");
+    }
+  };
+
+  console.log(data);
   return (
     <View>
       <View

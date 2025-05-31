@@ -49,19 +49,27 @@ const getAllUsers = async () => {
 const depositMoney = async (depAmount: number) => {
   const { data } = await instance.put(
     "/mini-project/api/transactions/deposit",
-    depAmount
+    {
+      amount: depAmount,
+    }
   );
+  return data;
 };
-const transferMoney = async (depAmount: number, username: string) => {
+const transferMoney = async (transferAmount: number, username: string) => {
   const { data } = await instance.put(
     `/mini-project/api/transactions/transfer/${username}`,
-    depAmount
+    {
+      amount: transferAmount,
+      username: username,
+    }
   );
 };
-const withdrawMoney = async (depAmount: number) => {
+const withdrawMoney = async (withAmount: number) => {
   const { data } = await instance.put(
     "/mini-project/api/transactions/withdraw",
-    depAmount
+    {
+      amount: withAmount,
+    }
   );
 };
 export {
