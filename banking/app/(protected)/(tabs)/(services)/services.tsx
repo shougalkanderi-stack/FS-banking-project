@@ -40,46 +40,58 @@ const services = () => {
             </Text>
           </View>
         </TouchableOpacity>
-        <View
-          style={{
-            height: 250,
-            width: 250,
-            backgroundColor: "lightgrey",
-            borderRadius: 25,
-            borderColor: "grey",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 10,
-          }}
+        <TouchableOpacity
+          onPress={() =>
+            router.push("/(protected)/(tabs)/(moneyServices)/withdraw")
+          }
         >
-          <Image
-            source={require("@/assets/images/cash-withdrawal.png")}
-            style={{ width: 150, height: 150 }}
-          />
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-            Withdraw Funds
-          </Text>
-        </View>
-        <View
-          style={{
-            height: 250,
-            width: 250,
-            backgroundColor: "lightgrey",
-            borderRadius: 25,
-            borderColor: "grey",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 10,
-          }}
+          <View
+            style={{
+              height: 250,
+              width: 250,
+              backgroundColor: "lightgrey",
+              borderRadius: 25,
+              borderColor: "grey",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 10,
+            }}
+          >
+            <Image
+              source={require("@/assets/images/cash-withdrawal.png")}
+              style={{ width: 150, height: 150 }}
+            />
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+              Withdraw Funds
+            </Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() =>
+            router.push("/(protected)/(tabs)/(moneyServices)/transfer")
+          }
         >
-          <Image
-            source={require("@/assets/images/money-transfer.png")}
-            style={{ width: 150, height: 150 }}
-          />
-          <Text style={{ fontSize: 20, fontWeight: "bold" }}>
-            Transfer Funds
-          </Text>
-        </View>
+          <View
+            style={{
+              height: 250,
+              width: 250,
+              backgroundColor: "lightgrey",
+              borderRadius: 25,
+              borderColor: "grey",
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 10,
+            }}
+          >
+            <Image
+              source={require("@/assets/images/money-transfer.png")}
+              style={{ width: 150, height: 150 }}
+            />
+            <Text style={{ fontSize: 20, fontWeight: "bold" }}>
+              Transfer Funds
+            </Text>
+          </View>
+        </TouchableOpacity>
         {/* <Text>Services tab</Text> */}
       </View>
     </ScrollView>

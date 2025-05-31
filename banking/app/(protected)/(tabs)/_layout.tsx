@@ -38,7 +38,7 @@ const tabsLayout = () => {
         name="(moneyServices)"
         options={{
           title: "Money Services",
-          href: null,
+          href: null, // hide the tab
           tabBarIcon: ({ color }) => (
             <FontAwesome size={28} name="user" color={color} />
           ),
