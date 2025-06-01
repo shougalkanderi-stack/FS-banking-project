@@ -29,10 +29,10 @@ const withdraw = () => {
     console.log("fail");
   }
   const hamdleWithdraw = async () => {
-    if (amount > 1) {
+    if (amount > data?.balance) {
       mutate();
     } else if (amount <= 1 && amount > 0) {
-      alert("Can Not Withdraw Amount Less Than 1KD");
+      alert("Can Not Withdraw Amount Less Than or Equal To 1KD");
     } else {
       alert("Please Enter a Valid Number");
     }
