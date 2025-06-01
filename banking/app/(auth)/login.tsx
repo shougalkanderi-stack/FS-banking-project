@@ -1,9 +1,12 @@
-import { Login } from "@/api/auth";
+import { Login as LoginAPI } from "@/api/auth";
 import AuthContext from "@/conext/AuthContext";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "expo-router";
+import { StatusBar } from "expo-status-bar";
 import React, { useContext, useState } from "react";
 import {
+  KeyboardAvoidingView,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
@@ -11,14 +14,14 @@ import {
   View,
 } from "react-native";
 
-const login = () => {
+const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const { setIsAuth } = useContext(AuthContext);
   const router = useRouter();
   const { mutate } = useMutation({
     mutationKey: ["login"],
-    mutationFn: async () => Login(username, password),
+    mutationFn: async () => LoginAPI(username, password),
     onSuccess: () => {
       setIsAuth(true);
       router.replace("/home");
@@ -27,92 +30,143 @@ const login = () => {
       console.log(Error);
     },
   });
+
   const handleLogin = () => {
     mutate();
   };
+
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: "grey",
-        padding: 20,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+    <KeyboardAvoidingView
+      behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}
     >
-      <View style={{ width: "100%", padding: 20 }}>
-        <Text
-          style={{
-            color: "Black",
-            fontSize: 24,
-            fontWeight: "bold",
-            marginBottom: 10,
-          }}
-        >
-          Login
-        </Text>
-        <Text style={{ color: "white", fontSize: 16 }}>
-          Create your account
-        </Text>
+      <StatusBar style="light" />
+      <View style={styles.overlay}>
+        <View style={styles.formContainer}>
+          <View style={styles.headerContainer}>
+            <Text style={styles.title}>Welcome Back!</Text>
+            <Text style={styles.subtitle}>Sign in to access your account</Text>
+          </View>
 
-        <TextInput
-          style={{
-            backgroundColor: "white",
-            padding: 10,
-            borderRadius: 5,
-            marginTop: 20,
-          }}
-          placeholder="Name"
-          onChangeText={(text) => setUserName(text.toLowerCase())}
-        />
+          <View style={styles.inputContainer}>
+            <TextInput
+              style={styles.input}
+              placeholder="Username"
+              placeholderTextColor="#A0AEC0"
+              onChangeText={(text) => setUserName(text.toLowerCase())}
+              autoCapitalize="none"
+            />
 
-        <TextInput
-          style={{
-            backgroundColor: "white",
-            padding: 10,
-            borderRadius: 5,
-            marginTop: 20,
-          }}
-          secureTextEntry={true}
-          placeholder="Password"
-          onChangeText={(text) => setPassword(text.toLowerCase())}
-        />
+            <TextInput
+              style={styles.input}
+              secureTextEntry={true}
+              placeholder="Password"
+              placeholderTextColor="#A0AEC0"
+              onChangeText={(text) => setPassword(text.toLowerCase())}
+              autoCapitalize="none"
+            />
 
-        <TouchableOpacity
-          style={{
-            backgroundColor: "white",
-            padding: 10,
-            borderRadius: 5,
-            marginTop: 20,
-            alignItems: "center",
-          }}
-          onPress={handleLogin}
-        >
-          <Text
-            style={{
-              color: "#111827",
-              fontWeight: "bold",
-              fontSize: 16,
-            }}
-          >
-            Login
-          </Text>
-        </TouchableOpacity>
+            <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+              <Text style={styles.loginButtonText}>Sign In</Text>
+            </TouchableOpacity>
 
-        {/* <TouchableOpacity
-          style={{ marginTop: 20, alignItems: "center" }}
-          onPress={() => router.push("/(auth)/register")}
-        >
-          <Text style={{ color: "white", fontSize: 16 }}>
-            Don't already have an account?{" "}
-            <Text style={{ color: "white", fontWeight: "bold" }}>Register</Text>
-          </Text>
-        </TouchableOpacity> */}
+            {/* <View style={styles.loginLinkContainer}>
+              <Text style={styles.loginText}>Dont have an account? </Text>
+              <Link href="/(auth)/register" asChild>
+                <TouchableOpacity>
+                  <Text style={styles.loginLink}>Register</Text>
+                </TouchableOpacity> */}
+            <TouchableOpacity style={styles.forgotPassword}>
+              <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+            </TouchableOpacity>
+            {/* </Link> */}
+          </View>
+        </View>
       </View>
-    </View>
+      {/* </View> */}
+    </KeyboardAvoidingView>
   );
 };
 
-export default login;
+export default Login;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#0C4A6E",
+  },
+  overlay: {
+    flex: 1,
+    backgroundColor: "rgba(12, 74, 110, 0.95)",
+    justifyContent: "center",
+    padding: 20,
+  },
+  formContainer: {
+    width: "100%",
+    maxWidth: 400,
+    alignSelf: "center",
+  },
+  headerContainer: {
+    marginBottom: 32,
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: "bold",
+    color: "#FFFFFF",
+    textAlign: "center",
+    marginBottom: 8,
+  },
+  subtitle: {
+    fontSize: 16,
+    color: "#94A3B8",
+    textAlign: "center",
+  },
+  inputContainer: {
+    width: "100%",
+  },
+  input: {
+    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 16,
+    fontSize: 16,
+    color: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: "rgba(255, 255, 255, 0.1)",
+  },
+  loginButton: {
+    backgroundColor: "#38BDF8",
+    borderRadius: 12,
+    padding: 16,
+    alignItems: "center",
+    marginTop: 8,
+  },
+  loginButtonText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  forgotPassword: {
+    marginTop: 16,
+    alignItems: "center",
+  },
+  forgotPasswordText: {
+    color: "#94A3B8",
+    fontSize: 14,
+  },
+
+  loginLinkContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 16,
+  },
+  loginText: {
+    color: "#94A3B8",
+    fontSize: 14,
+  },
+  loginLink: {
+    color: "#38BDF8",
+    fontSize: 14,
+    fontWeight: "500",
+  },
+});

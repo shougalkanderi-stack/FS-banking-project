@@ -55,7 +55,7 @@ const UserProfile = () => {
         borderRadius: 10,
         width: "95%",
         margin: 10,
-        borderWidth: 1,
+        // borderWidth: 1,
       }}
     >
       <View
@@ -72,8 +72,8 @@ const UserProfile = () => {
             style={{
               height: 100,
               width: 100,
-              borderWidth: 1,
-              borderColor: "#000",
+              //   borderWidth: 1,
+              //   borderColor: "#000",
               borderRadius: "50%",
             }}
           />
@@ -83,8 +83,8 @@ const UserProfile = () => {
             style={{
               height: 100,
               width: 100,
-              borderWidth: 1,
-              borderColor: "#000",
+              //   borderWidth: 1,
+              //   borderColor: "#000",
               borderRadius: "50%",
             }}
           />
