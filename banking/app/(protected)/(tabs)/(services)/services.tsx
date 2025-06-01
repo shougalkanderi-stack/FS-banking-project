@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
 import {
@@ -81,6 +82,14 @@ const Services = () => {
       </ScrollView>
     </SafeAreaView>
   );
+=======
+import { Stack } from "expo-router";
+import React from "react";
+import { StyleSheet } from "react-native";
+
+const services = () => {
+  return <Stack></Stack>;
+>>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
 };
 
 const styles = StyleSheet.create({

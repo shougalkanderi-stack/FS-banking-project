@@ -1,7 +1,8 @@
 interface userInfo {
   username: string;
   password: string;
-  image: string;
+  balance?: number;
+  image?: string;
 }
 
 export default userInfo;
