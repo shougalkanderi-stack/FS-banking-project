@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 import { FontAwesome5 } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React from "react";
 import {
   SafeAreaView,
@@ -11,18 +11,18 @@ import {
 } from "react-native";
 
 const services = [
-  {
-    id: "1",
-    title: "Transfer Money",
-    icon: "exchange-alt",
-    color: "#38BDF8",
-  },
-  {
-    id: "2",
-    title: "Bill Payment",
-    icon: "file-invoice-dollar",
-    color: "#38BDF8",
-  },
+  // {
+  //   id: "1",
+  //   title: "Transfer Money",
+  //   icon: "exchange-alt",
+  //   color: "#38BDF8",
+  // },
+  // {
+  //   id: "2",
+  //   title: "Bill Payment",
+  //   icon: "file-invoice-dollar",
+  //   color: "#38BDF8",
+  // },
   {
     id: "3",
     title: "Pay You",
@@ -43,13 +43,14 @@ const services = [
   },
   {
     id: "6",
-    title: "Cash Withdraw",
+    title: " Withdraw",
     icon: "money-bill-wave",
     color: "#38BDF8",
   },
 ];
 
 const Services = () => {
+  const router = useRouter();
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -66,7 +67,14 @@ const Services = () => {
             <TouchableOpacity
               key={service.id}
               style={styles.serviceCard}
-              onPress={() => {}}
+              onPress={() => {
+                if (service.id === "4") {
+                  router.push("/depositt");
+                }
+                if (service.id === "6") {
+                  router.push("/(protected)/(tabs)/(services)/withdraw");
+                }
+              }}
             >
               <View style={styles.iconContainer}>
                 <FontAwesome5
@@ -82,14 +90,6 @@ const Services = () => {
       </ScrollView>
     </SafeAreaView>
   );
-=======
-import { Stack } from "expo-router";
-import React from "react";
-import { StyleSheet } from "react-native";
-
-const services = () => {
-  return <Stack></Stack>;
->>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
 };
 
 const styles = StyleSheet.create({

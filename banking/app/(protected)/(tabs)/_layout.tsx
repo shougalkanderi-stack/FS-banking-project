@@ -1,16 +1,10 @@
-<<<<<<< HEAD
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
-=======
-// import { FontAwesomeIcon } from "@fortawesome/fontawesome-svg-core";
-import FontAwesome from "@expo/vector-icons/FontAwesome";
->>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
 import { Tabs } from "expo-router";
 import React from "react";
 import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 
 const tabsLayout = () => {
   return (
-<<<<<<< HEAD
     <Tabs
       screenOptions={{
         headerShown: false,
@@ -23,14 +17,10 @@ const tabsLayout = () => {
         tabBarHideOnKeyboard: true,
       }}
     >
-=======
-    <Tabs screenOptions={{ tabBarActiveTintColor: "grey", headerShown: false }}>
->>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
       <Tabs.Screen
         name="(home)"
         options={{
           title: "Home",
-<<<<<<< HEAD
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="home" size={22} color={color} />
           ),
@@ -78,18 +68,10 @@ const tabsLayout = () => {
           ),
         }}
       /> */}
-=======
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
-          ),
-        }}
-      />
->>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
       <Tabs.Screen
         name="(services)"
         options={{
           title: "Services",
-<<<<<<< HEAD
 
           tabBarButton: (props) => (
             <Pressable
@@ -126,10 +108,6 @@ const tabsLayout = () => {
                 Services
               </Text>
             </Pressable>
-=======
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
->>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
           ),
         }}
       />
@@ -137,13 +115,8 @@ const tabsLayout = () => {
         name="(network)"
         options={{
           title: "Network",
-<<<<<<< HEAD
           tabBarIcon: ({ color, size }) => (
             <FontAwesome5 name="network-wired" size={22} color={color} />
-=======
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="user" color={color} />
->>>>>>> afcae267917f75207d4e631fb60d99b6294ebfff
           ),
         }}
       />

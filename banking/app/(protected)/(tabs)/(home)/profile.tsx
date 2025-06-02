@@ -1,5 +1,6 @@
 import { currentUser } from "@/api/auth";
 import { deleteToken } from "@/api/storage";
+import { getTransactions } from "@/api/transactions";
 import AuthContext from "@/conext/AuthContext";
 import getImageUrl from "@/helper/helperFunctions";
 import { useQuery } from "@tanstack/react-query";
@@ -14,25 +15,42 @@ import {
 } from "react-native";
 
 const Profile = () => {
-  const { data, isLoading, isError } = useQuery({
+  const { setIsAuth } = useContext(AuthContext);
+
+  // Fetch user data
+  const { data: userData, isLoading: isLoadingUser } = useQuery({
     queryKey: ["getUser"],
     queryFn: async () => await currentUser(),
   });
 
-  const imageUrl = getImageUrl(data?.image);
+  // Fetch transactions for balance
+  const { data: transactions } = useQuery({
+    queryKey: ["transactions"],
+    queryFn: () => getTransactions(),
+  });
 
-  const LogOut = async () => {
-    deleteToken();
+  const imageUrl = getImageUrl(userData?.image);
+
+  // Calculate balance
+  const balance =
+    transactions?.reduce((total, t) => {
+      if (t.type === "deposit") return total + t.amount;
+      if (t.type === "withdraw" || t.type === "transfer")
+        return total - t.amount;
+      return total;
+    }, 0) || 0;
+
+  const currency = transactions?.[0]?.currency || "KWD";
+
+  const handleLogout = async () => {
+    await deleteToken();
     setIsAuth(false);
   };
-  const { setIsAuth } = useContext(AuthContext);
 
-  if (isLoading || isError) {
+  if (isLoadingUser) {
     return (
       <View style={styles.container}>
-        <Text style={styles.loadingText}>
-          {isLoading ? "Loading..." : "Error loading profile"}
-        </Text>
+        <Text style={styles.loadingText}>Loading...</Text>
       </View>
     );
   }
@@ -48,7 +66,7 @@ const Profile = () => {
               ) : (
                 <View style={styles.placeholderImage}>
                   <Text style={styles.placeholderText}>
-                    {data?.username?.charAt(0)?.toUpperCase() || "?"}
+                    {userData?.username?.charAt(0)?.toCase() || "?"}
                   </Text>
                 </View>
               )}
@@ -57,10 +75,16 @@ const Profile = () => {
 
           <View style={styles.usernameContainer}>
             <Text style={styles.usernameLabel}>Welcome back,</Text>
-            <Text style={styles.username}>{data?.username}</Text>
+            <Text style={styles.username}>{userData?.username}</Text>
+            <Text style={[styles.usernameLabel, { marginTop: 16 }]}>
+              Balance
+            </Text>
+            <Text style={styles.username}>
+              {balance.toFixed(2)} {currency}
+            </Text>
           </View>
 
-          <TouchableOpacity style={styles.logoutButton} onPress={LogOut}>
+          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
             <Text style={styles.logoutButtonText}>Sign Out</Text>
           </TouchableOpacity>
         </View>
@@ -78,15 +102,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#0C4A6E",
   },
+  loadingContainer: {
+    flex: 1,
+    backgroundColor: "#0C4A6E",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  loadingText: {
+    color: "#FFFFFF",
+    fontSize: 16,
+    marginTop: 12,
+  },
   profileSection: {
     flex: 1,
     alignItems: "center",
-    justifyContent: "center",
     paddingHorizontal: 24,
+    paddingTop: 40,
   },
   imageWrapper: {
     padding: 3,
-    backgroundColor: "#38bdf8",
+    backgroundColor: "#38BDF8",
     borderRadius: 110,
     marginBottom: 24,
   },
@@ -119,14 +154,18 @@ const styles = StyleSheet.create({
   },
   placeholderText: {
     fontSize: 72,
-    color: "#38bdf8",
+    color: "#38BDF8",
     fontWeight: "600",
+  },
+  infoSection: {
+    width: "100%",
+    alignItems: "center",
   },
   usernameContainer: {
     alignItems: "center",
-    marginBottom: 40,
+    marginBottom: 32,
   },
-  usernameLabel: {
+  welcomeText: {
     fontSize: 18,
     color: "#94A3B8",
     marginBottom: 8,
@@ -135,9 +174,19 @@ const styles = StyleSheet.create({
     fontSize: 36,
     fontWeight: "700",
     color: "#FFFFFF",
+    textAlign: "center",
     textShadowColor: "rgba(0, 0, 0, 0.2)",
     textShadowOffset: { width: 0, height: 2 },
     textShadowRadius: 4,
+  },
+  usernameLabel: {
+    fontSize: 16,
+    color: "#94A3B8",
+    marginBottom: 8,
+  },
+  actionsContainer: {
+    width: "100%",
+    alignItems: "center",
   },
   logoutButton: {
     backgroundColor: "rgba(239, 68, 68, 0.15)",
@@ -149,17 +198,18 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderWidth: 1,
     borderColor: "#EF4444",
+    marginBottom: 8,
   },
   logoutButtonText: {
     color: "#EF4444",
     fontSize: 18,
     fontWeight: "600",
   },
-  loadingText: {
-    color: "#FFFFFF",
-    fontSize: 18,
+  logoutHint: {
+    fontSize: 14,
+    color: "#94A3B8",
     textAlign: "center",
-    marginTop: 20,
+    fontStyle: "italic",
   },
 });
 
