@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   transactionItem: {
     flexDirection: "row", // Layout items horizontally
     alignItems: "center", // Center items vertically
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,

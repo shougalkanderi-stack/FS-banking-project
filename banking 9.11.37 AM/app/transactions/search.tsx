@@ -149,7 +149,7 @@ const SearchTransactions = () => {
         {isLoading ? (
           <ActivityIndicator
             size="large"
-            color="#38BDF8"
+            color="#745187"
             style={styles.loader}
           />
         ) : (
@@ -169,11 +169,11 @@ const SearchTransactions = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   searchContainer: {
     padding: 20,
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
   },
   dateInput: {
     flex: 0.48,
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     padding: 16,
     borderRadius: 12,
     color: "#FFFFFF",
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
   },
   amountInput: {
     flex: 0.48,
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     padding: 16,
     borderRadius: 12,
     color: "#FFFFFF",
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   transactionItem: {
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,

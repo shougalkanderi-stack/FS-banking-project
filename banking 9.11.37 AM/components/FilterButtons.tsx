@@ -65,12 +65,12 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 20,
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
   },
   filterButtonActive: {
-    backgroundColor: "rgb(140, 199, 238)",
+    backgroundColor: "#745187",
   },
   filterButtonText: {
     color: "#94A3B8",

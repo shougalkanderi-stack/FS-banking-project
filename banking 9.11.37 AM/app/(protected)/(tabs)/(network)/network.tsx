@@ -33,7 +33,7 @@ const network = (user: userInfo) => {
   // });
 
   return (
-    <ScrollView style={{ backgroundColor: "#0C4A6E" }}>
+    <ScrollView style={{ backgroundColor: "#f0dcf5" }}>
       <View
         style={{
           backgroundColor: "0C4A6E",
@@ -48,7 +48,7 @@ const network = (user: userInfo) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   header: {
     flexDirection: "row",

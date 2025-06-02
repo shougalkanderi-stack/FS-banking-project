@@ -64,7 +64,7 @@ const BalanceCard: React.FC<BalanceCardProps> = ({ transactions }) => {
 // Styles for the component
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "rgba(255, 255, 255, 0.08)", // Semi-transparent background
+    backgroundColor: "#74518711", // Semi-transparent background
     borderRadius: 16, // Rounded corners
     padding: 20, // Inner spacing
     marginBottom: 24, // Space below the card

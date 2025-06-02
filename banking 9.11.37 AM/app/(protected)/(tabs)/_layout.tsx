@@ -9,7 +9,7 @@ const tabsLayout = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: styles.tabBar,
-        tabBarActiveTintColor: "#38BDF8",
+        tabBarActiveTintColor: "#745187",
         tabBarInactiveTintColor: "#94A3B8",
         tabBarLabelStyle: styles.tabLabel,
         tabBarItemStyle: styles.tabItem,
@@ -56,7 +56,7 @@ const tabsLayout = () => {
                   styles.tabLabel,
                   {
                     color: props.accessibilityState?.selected
-                      ? "#38BDF8"
+                      ? "#745187"
                       : "#94A3B8",
                     marginTop: 8,
                   },
@@ -99,7 +99,7 @@ const tabsLayout = () => {
                   styles.tabLabel,
                   {
                     color: props.accessibilityState?.selected
-                      ? "#38BDF8"
+                      ? "#745187"
                       : "#94A3B8",
                     marginTop: 8,
                   },
@@ -128,7 +128,7 @@ export default tabsLayout;
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
     borderTopColor: "rgba(255, 255, 255, 0.1)",
     borderTopWidth: 1,
     paddingTop: 10,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(56, 189, 248, 0.2)",
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#38BDF8",
+    shadowColor: "#745187",
     shadowOffset: {
       width: 0,
       height: 4,
@@ -181,11 +181,11 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 25,
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#745187",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 2,
-    borderColor: "#0C4A6E",
+    borderColor: "#f0dcf5",
   },
   serviceIcon: {
     textShadowColor: "rgba(0, 0, 0, 0.2)",
@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(56, 189, 248, 0.2)",
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#38BDF8",
+    shadowColor: "#745187",
     shadowOffset: {
       width: 0,
       height: 4,
@@ -217,11 +217,11 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#745187",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 2,
-    borderColor: "#0C4A6E",
+    borderColor: "#f0dcf5",
   },
   paymentIcon: {
     textShadowColor: "rgba(0, 0, 0, 0.2)",

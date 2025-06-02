@@ -93,11 +93,11 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   overlay: {
     flex: 1,
-    backgroundColor: "rgba(12, 74, 110, 0.95)",
+    backgroundColor: "#f0dcf5)",
     justifyContent: "center",
     padding: 20,
   },
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     borderColor: "rgba(255, 255, 255, 0.1)",
   },
   loginButton: {
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#745187",
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   loginLink: {
-    color: "#38BDF8",
+    color: "#745187",
     fontSize: 14,
     fontWeight: "500",
   },

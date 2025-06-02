@@ -238,7 +238,7 @@ const Home = () => {
             <RefreshControl
               refreshing={isRefetching}
               onRefresh={refetch}
-              tintColor="#38BDF8"
+              tintColor="#745187"
             />
           }
           ListEmptyComponent={
@@ -264,12 +264,12 @@ const Home = () => {
                 theme={{
                   calendarBackground: "#FFFFFF",
                   textSectionTitleColor: "#1E293B",
-                  selectedDayBackgroundColor: "#38BDF8",
+                  selectedDayBackgroundColor: "#745187",
                   selectedDayTextColor: "#FFFFFF",
-                  todayTextColor: "#38BDF8",
+                  todayTextColor: "#745187",
                   dayTextColor: "#1E293B",
                   textDisabledColor: "#94A3B8",
-                  dotColor: "#38BDF8",
+                  dotColor: "#745187",
                   monthTextColor: "#1E293B",
                   textMonthFontWeight: "bold",
                 }}
@@ -300,12 +300,12 @@ const Home = () => {
                 theme={{
                   calendarBackground: "#FFFFFF",
                   textSectionTitleColor: "#1E293B",
-                  selectedDayBackgroundColor: "#38BDF8",
+                  selectedDayBackgroundColor: "#745187",
                   selectedDayTextColor: "#FFFFFF",
-                  todayTextColor: "#38BDF8",
+                  todayTextColor: "#745187",
                   dayTextColor: "#1E293B",
                   textDisabledColor: "#94A3B8",
-                  dotColor: "#38BDF8",
+                  dotColor: "#745187",
                   monthTextColor: "#1E293B",
                   textMonthFontWeight: "bold",
                 }}
@@ -327,7 +327,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   header: {
     flexDirection: "row",
@@ -354,7 +354,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "600",
     color: "#FFFFFF",
-    marginBottom: 16,
+    marginBottom: 30,
   },
   transactionsList: {
     paddingBottom: 24,

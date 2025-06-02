@@ -172,13 +172,13 @@ const Register = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   content: {
     flex: 1,
     padding: 24,
     alignItems: "center",
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   bankLogo: {
     width: 120,
@@ -217,11 +217,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     bottom: 0,
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#745187",
     borderRadius: 15,
     padding: 8,
     borderWidth: 2,
-    borderColor: "#0C4A6E",
+    borderColor: "#f0dcf5",
   },
   editIcon: {
     width: 14,
@@ -243,7 +243,7 @@ const styles = StyleSheet.create({
     tintColor: "#94A3B8",
   },
   imagePickerText: {
-    color: "#38BDF8",
+    color: "#745187",
     fontSize: 14,
   },
   form: {
@@ -251,7 +251,7 @@ const styles = StyleSheet.create({
     maxWidth: 400,
   },
   input: {
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   showPasswordButton: {
-    backgroundColor: "rgba(255, 255, 255, 0.08)",
+    backgroundColor: "#74518711",
     padding: 16,
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
     tintColor: "#94A3B8",
   },
   button: {
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#745187",
     borderRadius: 12,
     padding: 16,
     alignItems: "center",
@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   loginLink: {
-    color: "#38BDF8",
+    color: "#745187",
     fontSize: 14,
     fontWeight: "500",
   },

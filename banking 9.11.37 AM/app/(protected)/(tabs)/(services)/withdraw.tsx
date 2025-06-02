@@ -44,7 +44,7 @@ const withdraw = () => {
   };
 
   return (
-    <View style={{ backgroundColor: "#0C4A6E", height: "100%" }}>
+    <View style={{ backgroundColor: "#f0dcf5", height: "100%" }}>
       <View
         style={{
           width: "100%",
@@ -109,7 +109,7 @@ const withdraw = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   header: {
     padding: 24,

@@ -96,15 +96,15 @@ const Profile = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   loadingContainer: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
   },
   imageWrapper: {
     padding: 3,
-    backgroundColor: "#38BDF8",
+    backgroundColor: "#745187",
     borderRadius: 110,
     marginBottom: 24,
   },
@@ -140,21 +140,21 @@ const styles = StyleSheet.create({
     width: 210,
     borderRadius: 105,
     borderWidth: 4,
-    borderColor: "#0C4A6E",
+    borderColor: "#f0dcf5",
   },
   placeholderImage: {
     height: 210,
     width: 210,
     borderRadius: 105,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 4,
-    borderColor: "#0C4A6E",
+    borderColor: "#f0dcf5",
   },
   placeholderText: {
     fontSize: 72,
-    color: "#38BDF8",
+    color: "#745187",
     fontWeight: "600",
   },
   infoSection: {

@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     marginBottom: 16, // Space below the search box
   },
   searchInput: {
-    backgroundColor: "rgba(255, 255, 255, 0.08)", // Semi-transparent white background
+    backgroundColor: "#74518711", // Semi-transparent white background
     borderRadius: 12, // Rounded corners
     padding: 16, // Inner spacing
     color: "#FFFFFF", // White text color

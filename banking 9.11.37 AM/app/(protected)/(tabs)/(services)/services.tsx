@@ -15,37 +15,37 @@ const services = [
   //   id: "1",
   //   title: "Transfer Money",
   //   icon: "exchange-alt",
-  //   color: "#38BDF8",
+  //   color: "#745187",
   // },
   // {
   //   id: "2",
   //   title: "Bill Payment",
   //   icon: "file-invoice-dollar",
-  //   color: "#38BDF8",
+  //   color: "#745187",
   // },
   {
     id: "3",
     title: "Pay You",
     icon: "hand-holding-usd",
-    color: "#38BDF8",
+    color: "#745187",
   },
   {
     id: "4",
     title: "Pay Me",
     icon: "hand-holding",
-    color: "#38BDF8",
+    color: "#745187",
   },
   {
     id: "5",
     title: "Donate",
     icon: "hand-holding-heart",
-    color: "#38BDF8",
+    color: "#745187",
   },
   {
     id: "6",
     title: " Withdraw",
     icon: "money-bill-wave",
-    color: "#38BDF8",
+    color: "#745187",
   },
 ];
 
@@ -74,6 +74,12 @@ const Services = () => {
                 if (service.id === "6") {
                   router.push("/(protected)/(tabs)/(services)/withdraw");
                 }
+                if (service.id === "3") {
+                  router.push("/(protected)/(tabs)/(services)/transfer");
+                }
+                if (service.id === "5") {
+                  router.push("/(protected)/(tabs)/(services)/donate");
+                }
               }}
             >
               <View style={styles.iconContainer}>
@@ -95,7 +101,7 @@ const Services = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#0C4A6E",
+    backgroundColor: "#f0dcf5",
   },
   header: {
     padding: 24,
