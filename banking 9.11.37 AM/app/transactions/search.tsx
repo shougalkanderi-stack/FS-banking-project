@@ -169,11 +169,11 @@ const SearchTransactions = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   searchContainer: {
     padding: 20,
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#FFFFFF",
+    color: "#745187",
     marginBottom: 20,
   },
   dateFilters: {
@@ -192,10 +192,10 @@ const styles = StyleSheet.create({
   },
   dateInput: {
     flex: 0.48,
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     padding: 16,
     borderRadius: 12,
-    color: "#FFFFFF",
+    color: "#745187",
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
   },
@@ -205,10 +205,10 @@ const styles = StyleSheet.create({
   },
   amountInput: {
     flex: 0.48,
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     padding: 16,
     borderRadius: 12,
-    color: "#FFFFFF",
+    color: "#745187",
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
   },
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   transactionItem: {
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     padding: 16,
     borderRadius: 12,
     marginBottom: 12,
@@ -238,7 +238,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   transactionDate: {
-    color: "#FFFFFF",
+    color: "#745187",
     fontSize: 14,
   },
   transactionAmount: {

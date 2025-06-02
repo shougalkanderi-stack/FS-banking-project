@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   transactionItem: {
     flexDirection: "row", // Layout items horizontally
     alignItems: "center", // Center items vertically
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
   transactionType: {
     fontSize: 16,
     fontWeight: "500",
-    color: "#FFFFFF",
+    color: "#745187",
     marginBottom: 4,
   },
   transactionDate: {

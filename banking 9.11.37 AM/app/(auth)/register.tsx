@@ -67,10 +67,10 @@ const Register = () => {
       <StatusBar style="light" />
       <View style={styles.content}>
         {/* Logo/Bank Image */}
-        <Image
+        {/* <Image
           source={require("@/assets/images/icon.png")}
-          style={styles.bankLogo}
-        />
+          style={styles.bankLogo} */}
+        {/* /> */}
 
         <Text style={styles.title}>Create Account</Text>
         <Text style={styles.subtitle}>Join our secure banking platform</Text>
@@ -172,13 +172,13 @@ const Register = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   content: {
     flex: 1,
     padding: 24,
     alignItems: "center",
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   bankLogo: {
     width: 120,
@@ -189,8 +189,8 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#FFFFFF",
-    marginTop: 24,
+    color: "#745187",
+    marginTop: 100,
     textAlign: "center",
   },
   subtitle: {
@@ -226,7 +226,7 @@ const styles = StyleSheet.create({
   editIcon: {
     width: 14,
     height: 14,
-    tintColor: "#FFFFFF",
+    tintColor: "#745187",
   },
   placeholderImage: {
     width: 100,
@@ -251,11 +251,11 @@ const styles = StyleSheet.create({
     maxWidth: 400,
   },
   input: {
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
-    color: "#FFFFFF",
+    color: "#745187",
     fontSize: 16,
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 0,
   },
   showPasswordButton: {
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     padding: 16,
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
@@ -296,7 +296,7 @@ const styles = StyleSheet.create({
     opacity: 0.7,
   },
   buttonText: {
-    color: "#FFFFFF",
+    color: "white",
     fontSize: 16,
     fontWeight: "bold",
   },

@@ -101,7 +101,7 @@ const Services = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   header: {
     padding: 24,
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "700",
-    color: "#FFFFFF",
+    color: "#745187",
     marginBottom: 8,
   },
   subtitle: {
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
   serviceCard: {
     width: "47%",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    backgroundColor: "#74518744",
     borderRadius: 16,
     padding: 20,
     alignItems: "center",
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     width: 60,
     height: 60,
-    backgroundColor: "rgba(56, 189, 248, 0.1)",
+    backgroundColor: "#fff7fc",
     borderRadius: 30,
     justifyContent: "center",
     alignItems: "center",
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
   serviceTitle: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#FFFFFF",
+    color: "#745187",
     textAlign: "center",
   },
 });

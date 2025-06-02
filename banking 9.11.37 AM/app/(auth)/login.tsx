@@ -93,7 +93,7 @@ export default Login;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   overlay: {
     flex: 1,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#FFFFFF",
+    color: "#745187",
     textAlign: "center",
     marginBottom: 8,
   },
@@ -125,12 +125,12 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   input: {
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     borderRadius: 12,
     padding: 16,
     marginBottom: 16,
     fontSize: 16,
-    color: "#FFFFFF",
+    color: "#745187",
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
   },
@@ -142,7 +142,7 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   loginButtonText: {
-    color: "#FFFFFF",
+    color: "#ffffff",
     fontSize: 16,
     fontWeight: "bold",
   },

@@ -80,17 +80,15 @@ const Donate = () => {
 export default Donate;
 
 const styles = StyleSheet.create({
-  container: { padding: 20, flex: 1, backgroundColor: "#f0dcf5" },
+  container: { padding: 20, flex: 1 },
   heading: {
-    color: "#edede9",
     fontSize: 24,
     fontWeight: "bold",
     marginTop: 50,
     marginBottom: 10,
   },
-  subheading: { color: "#edede9", fontSize: 16, marginBottom: 20 },
+  subheading: { fontSize: 16, marginBottom: 20 },
   label: {
-    color: "#edede9",
     fontWeight: "bold",
     marginTop: 60,
     marginBottom: 10,
@@ -114,7 +112,7 @@ const styles = StyleSheet.create({
     marginTop: 50,
   },
   button: {
-    backgroundColor: "#edede9",
+    backgroundColor: "white",
     padding: 15,
     borderRadius: 8,
     marginTop: 170,

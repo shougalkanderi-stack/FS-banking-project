@@ -265,7 +265,7 @@ const Home = () => {
                   calendarBackground: "#FFFFFF",
                   textSectionTitleColor: "#1E293B",
                   selectedDayBackgroundColor: "#745187",
-                  selectedDayTextColor: "#FFFFFF",
+                  selectedDayTextColor: "#745187",
                   todayTextColor: "#745187",
                   dayTextColor: "#1E293B",
                   textDisabledColor: "#94A3B8",
@@ -301,7 +301,7 @@ const Home = () => {
                   calendarBackground: "#FFFFFF",
                   textSectionTitleColor: "#1E293B",
                   selectedDayBackgroundColor: "#745187",
-                  selectedDayTextColor: "#FFFFFF",
+                  selectedDayTextColor: "#745187",
                   todayTextColor: "#745187",
                   dayTextColor: "#1E293B",
                   textDisabledColor: "#94A3B8",
@@ -327,7 +327,7 @@ const Home = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   header: {
     flexDirection: "row",
@@ -343,7 +343,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#a8d5e2",
   },
   transactionsContainer: {
     flex: 1,
@@ -353,7 +352,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#FFFFFF",
+    color: "#745187",
     marginBottom: 30,
   },
   transactionsList: {
@@ -377,7 +376,7 @@ const styles = StyleSheet.create({
   },
   dateButton: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#74518722",
     padding: 8,
     borderRadius: 8,
     borderWidth: 1,
@@ -395,7 +394,7 @@ const styles = StyleSheet.create({
   },
   dateRangeSeparator: {
     marginHorizontal: 8,
-    color: "#ffff",
+    color: "#745187",
     fontSize: 14,
   },
   clearButton: {
@@ -405,7 +404,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EF4444",
   },
   clearButtonText: {
-    color: "#FFFFFF",
+    color: "#745187",
     fontSize: 12,
     fontWeight: "500",
   },
@@ -415,7 +414,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalContent: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#74518722",
     margin: 20,
     borderRadius: 12,
     padding: 16,
@@ -442,7 +441,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   modalCloseButtonText: {
-    color: "#FFFFFF",
+    color: "#745187",
     textAlign: "center",
     fontWeight: "600",
   },

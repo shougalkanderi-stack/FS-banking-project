@@ -81,8 +81,8 @@ const UserProfile = () => {
 
       <Text
         style={{
-          color: "#edede9",
-          fontSize: 25,
+          color: "#745187",
+          fontSize: 20,
           fontFamily: "",
           fontWeight: "bold",
           padding: 10,

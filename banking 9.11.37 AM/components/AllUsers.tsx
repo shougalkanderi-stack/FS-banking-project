@@ -9,7 +9,7 @@ const AllUsers = (user: userInfo) => {
         style={{
           height: 100,
           width: "95%",
-          backgroundColor: "#6096ba",
+          backgroundColor: "#74518744",
           padding: 10,
           marginTop: 15,
           borderRadius: 15,

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     paddingHorizontal: 10,
     borderRadius: 20,
-    backgroundColor: "#74518711",
+    backgroundColor: "#74518722",
     borderWidth: 1,
     borderColor: "rgba(255, 255, 255, 0.1)",
   },
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   filterButtonTextActive: {
-    color: "#FFFFFF",
+    color: "#ffffff",
   },
 });
 

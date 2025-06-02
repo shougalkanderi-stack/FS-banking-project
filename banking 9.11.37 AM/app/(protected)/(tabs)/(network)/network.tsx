@@ -33,7 +33,7 @@ const network = (user: userInfo) => {
   // });
 
   return (
-    <ScrollView style={{ backgroundColor: "#f0dcf5" }}>
+    <ScrollView style={{ backgroundColor: "#f0dcf577" }}>
       <View
         style={{
           backgroundColor: "0C4A6E",
@@ -48,7 +48,7 @@ const network = (user: userInfo) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   header: {
     flexDirection: "row",
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 20,
     fontWeight: "600",
-    color: "#FFFFFF",
+    color: "#745187",
     marginBottom: 16,
   },
   transactionsList: {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
   },
   dateButton: {
     flex: 1,
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#74518722",
     padding: 12,
     borderRadius: 8,
     borderWidth: 1,
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#EF4444",
   },
   clearButtonText: {
-    color: "#FFFFFF",
+    color: "#745187",
     fontSize: 12,
     fontWeight: "500",
   },
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalContent: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#74518722",
     margin: 20,
     borderRadius: 12,
     padding: 16,
@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     marginTop: 16,
   },
   modalCloseButtonText: {
-    color: "#FFFFFF",
+    color: "#745187",
     textAlign: "center",
     fontWeight: "600",
   },

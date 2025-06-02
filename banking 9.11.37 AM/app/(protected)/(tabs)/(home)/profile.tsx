@@ -96,20 +96,20 @@ const Profile = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
   },
   loadingContainer: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
     justifyContent: "center",
     alignItems: "center",
   },
   loadingText: {
-    color: "#FFFFFF",
+    color: "#745187",
     fontSize: 16,
     marginTop: 12,
   },
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     height: 210,
     width: 210,
     borderRadius: 105,
-    backgroundColor: "#f0dcf5",
+    backgroundColor: "#f0dcf577",
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 4,
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   username: {
     fontSize: 36,
     fontWeight: "700",
-    color: "#FFFFFF",
+    color: "#745187",
     textAlign: "center",
     textShadowColor: "rgba(0, 0, 0, 0.2)",
     textShadowOffset: { width: 0, height: 2 },

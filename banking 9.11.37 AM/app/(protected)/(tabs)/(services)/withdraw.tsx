@@ -44,7 +44,7 @@ const withdraw = () => {
   };
 
   return (
-    <View style={{ backgroundColor: "#f0dcf5", height: "100%" }}>
+    <View style={{ height: "100%" }}>
       <View
         style={{
           width: "100%",
@@ -55,7 +55,6 @@ const withdraw = () => {
       >
         <Text
           style={{
-            color: "#cae9ff",
             fontSize: 24,
             fontWeight: "bold",
             marginBottom: 10,
@@ -63,7 +62,7 @@ const withdraw = () => {
         >
           Withdraw Funds
         </Text>
-        <Text style={{ color: "#cae9ff", fontSize: 16 }}>
+        <Text style={{ fontSize: 16 }}>
           withdraw funds from your current account
         </Text>
       </View>
@@ -72,6 +71,7 @@ const withdraw = () => {
           style={{
             backgroundColor: "white",
             padding: 10,
+            paddingVertical: 25,
             borderRadius: 5,
             marginTop: 20,
             width: "90%",
@@ -109,7 +109,6 @@ const withdraw = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f0dcf5",
   },
   header: {
     padding: 24,
@@ -117,12 +116,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 32,
     fontWeight: "700",
-    color: "#FFFFFF",
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 16,
-    color: "#94A3B8",
   },
   scrollView: {
     flex: 1,
@@ -154,7 +151,6 @@ const styles = StyleSheet.create({
   serviceTitle: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#FFFFFF",
     textAlign: "center",
   },
 });
