@@ -37,7 +37,7 @@ export default function RootLayout() {
   }
   return (
     <SafeAreaProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: "lightgrey" }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: "white" }}>
         <QueryClientProvider client={queryClient}>
           <AuthContext.Provider value={{ isAuth, setIsAuth }}>
             <Stack screenOptions={{ headerShown: false }}>

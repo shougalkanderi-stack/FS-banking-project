@@ -18,12 +18,12 @@ const deposit = () => {
   const { mutate, isError, isSuccess } = useMutation({
     mutationKey: ["depositMoney"],
     mutationFn: async () => {
-      const newBlance = data?.balance + amount;
-      await depositMoney(newBlance);
+      // const newBlance = data?.balance + amount;
+      await depositMoney(amount);
     },
   });
   if (isSuccess) {
-    console.log("success");
+    alert("Success");
   }
   if (isError) {
     console.log("fail");
@@ -38,7 +38,6 @@ const deposit = () => {
     }
   };
 
-  console.log(data);
   return (
     <View>
       <View

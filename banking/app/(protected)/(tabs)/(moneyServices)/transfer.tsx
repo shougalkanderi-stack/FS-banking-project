@@ -1,5 +1,8 @@
-import { currentUser, transferMoney } from "@/api/auth";
+import { getAllUsers, transferMoney } from "@/api/auth";
+import userInfo from "@/types/UserInfo";
+import { Picker } from "@react-native-picker/picker";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { useLocalSearchParams } from "expo-router";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -9,38 +12,89 @@ import {
   View,
 } from "react-native";
 
-const transfer = () => {
-  const [amount, setAmount] = useState(0);
+const Transfer = (user: userInfo) => {
+  // steps to understand:
+  // i need to grap the current user
+  // i need to grap all users and make a selection which user i want to transfer the funds to
+  //useMutate to update the balance of both the current user and the selected user
+  // the api should update the selected user balance, I need to upadate the current user pragmatically
+  //how can I make the user selection?
+  // can I use two useQ? two useM?
+
+  // grap the current user
+  const { transfer } = useLocalSearchParams();
+  // console.log("transfer param:", transfer);
+  // grap all users
   const { data, isLoading } = useQuery({
     queryKey: ["getUser"],
-    queryFn: async () => await currentUser(),
+    queryFn: async () => await getAllUsers(),
   });
+
+  if (isLoading) {
+    return <Text>Loading users...</Text>;
+  }
+
+  const usersArray = Array.isArray(data)
+    ? data
+    : Array.isArray(data?.users)
+    ? data.users
+    : [];
+
+  // usersArray.forEach((user: any) => console.log("User ID:", user._id));
+
+  // const selectedUser = usersArray.find(
+  //   (user: any) => String(user._id) === String(transfer)
+  // );
+
+  const [amount, setAmount] = useState(0);
+  // const { data, isLoading } = useQuery({
+  //   queryKey: ["getUser"],
+  //   queryFn: async () => await currentUser(),
+  // });
+
+  //
   const { mutate, isError, isSuccess } = useMutation({
     mutationKey: ["transferMoney"],
     mutationFn: async () => {
-      const newBlance = data?.balance - amount;
-      await transferMoney(newBlance, data.username);
+      await transferMoney(amount, usersArray[0].username);
     },
   });
   if (isSuccess) {
-    console.log("success");
+    alert("Transfer successful!");
   }
   if (isError) {
-    console.log("fail");
+    alert("Transfer failed. Please try again.");
   }
   const hamdleTransfer = async () => {
-    if (amount > data?.balance) {
-      mutate();
-    } else if (amount <= 1 && amount > 0) {
-      alert("Can Not Transfer Amount Less Than or Equal To 1KD");
-    } else {
-      alert("Please Enter a Valid Number");
-    }
+    mutate();
   };
+  const [selectedUserId, setSelectedUserId] = useState<string | userInfo>("0");
+  // console.log(data);
+  const items = usersArray?.map((user: any) => ({
+    label: user.username,
+    value: user._id,
+  }));
+  console.log("Droselecteduser", selectedUserId);
 
-  console.log(data);
   return (
     <View>
+      <Text style={styles.label}>Select recipient:</Text>
+      {/* <RNPickerSelect
+        onValueChange={(value: userInfo) => setSelectedUserId(value)}
+        placeholder={{ label: "Select a user...", value: null }}
+        items={items}
+        style={pickerSelectStyles}
+      /> */}
+      <Picker
+        selectedValue={selectedUserId}
+        onValueChange={(itemValue) => setSelectedUserId(itemValue)}
+        style={{ height: 50, width: "100%" }}
+      >
+        {usersArray.map((user: any) => (
+          <Picker.Item key={user._id} label={user.username} value={user.id} />
+        ))}
+      </Picker>
+
       <View
         style={{
           width: "100%",
@@ -72,9 +126,16 @@ const transfer = () => {
             width: "90%",
           }}
           placeholderTextColor={"black"}
-          placeholder="Enter Withdraw Amount"
+          placeholder="Enter Transfer Amount"
           onChangeText={(text) => setAmount(Number(text))}
         />
+        <Text
+          style={{
+            color: "black",
+            fontSize: 16,
+            marginTop: 10,
+          }}
+        ></Text>
         <TouchableOpacity
           style={{
             backgroundColor: "white",
@@ -101,6 +162,45 @@ const transfer = () => {
   );
 };
 
-export default transfer;
+export default Transfer;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  picker: {
+    height: 50,
+    color: "black", // This sets the text color
+    borderWidth: 1,
+    borderColor: "black",
+  },
+  container: { padding: 16 },
+  label: { marginTop: 16, marginBottom: 8, fontWeight: "bold" },
+  input: {
+    borderWidth: 1,
+    borderColor: "#ccc",
+    padding: 10,
+    marginBottom: 20,
+  },
+});
+const pickerSelectStyles = {
+  inputIOS: {
+    fontSize: 16,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 4,
+    color: "black",
+    paddingRight: 30,
+    marginBottom: 20,
+  },
+  inputAndroid: {
+    fontSize: 16,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 4,
+    color: "black",
+    paddingRight: 30,
+    marginBottom: 20,
+  },
+};

@@ -1,5 +1,6 @@
 import { currentUser, withdrawMoney } from "@/api/auth";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import {
   StyleSheet,
@@ -18,27 +19,30 @@ const withdraw = () => {
   const { mutate, isError, isSuccess } = useMutation({
     mutationKey: ["withdrawMoney"],
     mutationFn: async () => {
-      const newBlance = data?.balance - amount;
-      await withdrawMoney(newBlance);
+      // const newBlance = data?.balance - amount;
+      await withdrawMoney(amount);
     },
   });
+
   if (isSuccess) {
-    console.log("success");
+    alert("Success");
+    router.replace("/(protected)/(tabs)/(services)/services");
   }
   if (isError) {
     console.log("fail");
   }
   const hamdleWithdraw = async () => {
-    if (amount > data?.balance) {
+    if (amount < data?.balance) {
       mutate();
     } else if (amount <= 1 && amount > 0) {
       alert("Can Not Withdraw Amount Less Than or Equal To 1KD");
+    } else if (amount > data?.balance) {
+      alert("Amount Entered is Greater Than Your Balance");
     } else {
       alert("Please Enter a Valid Number");
     }
   };
 
-  console.log(data);
   return (
     <View>
       <View

@@ -18,12 +18,14 @@ const network = (user: userInfo) => {
 
   // mapping data
 
-  const userList = data?.map((user: userInfo) => {
+  const userList = data?.map((user: userInfo, index: any) => {
     return (
       <AllUsers
+        key={index}
         username={user.username}
         image={user.image}
         password={user.password}
+        balance={user.balance}
       />
     );
   });

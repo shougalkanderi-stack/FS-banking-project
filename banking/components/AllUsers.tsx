@@ -7,7 +7,7 @@ const AllUsers = (user: userInfo) => {
     <View style={{ display: "flex", alignItems: "center" }}>
       <View
         style={{
-          height: 100,
+          height: 200,
           width: "95%",
           backgroundColor: "lightgrey",
           padding: 10,
@@ -30,6 +30,9 @@ const AllUsers = (user: userInfo) => {
         />
         <Text style={{ padding: 10, fontSize: 20, fontWeight: "bold" }}>
           {user.username}
+        </Text>
+        <Text style={{ padding: 10, fontSize: 8, fontWeight: "bold" }}>
+          {user.balance}
         </Text>
       </View>
     </View>
